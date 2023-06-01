@@ -17,7 +17,7 @@
             <div class="form-section">
                 <label for="recipients">Recipients:</label>
                 <!-- https://stackoverflow.com/a/9331463 (with the adjustment from Arie Litovsky) -->
-                <input type="text" id="recipients" name="recipients" title="Submit a list of comma seperated emails"
+                <input class="recipients-input" type="text" name="recipients" title="Submit a list of comma seperated emails"
                     pattern="^[\W]*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+[\W]*,{1}[\W]*)*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+)[\W]*$"
                     required>
             </div>
@@ -30,15 +30,15 @@
             <div class="bottom-bar">
                 <div class="form-section">
                     <label for="sender">Sender:</label>
-                    <input type="email" id="sender" name="sender" required>
+                    <input type="email" name="sender" required>
                 </div>
 
                 <div class="form-section">
                     <label for="password">Password:</label>
-                    <input type="text" id="password" name="password" required>
+                    <input type="text" name="password" required>
                 </div>
 
-                <input type="submit" value="Send">
+                <input class="submit-mail" type="submit" value="Send">
             </div>
         </div>
     </form>
