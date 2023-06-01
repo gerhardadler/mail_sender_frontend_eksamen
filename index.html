@@ -34,17 +34,15 @@
             const form = document.getElementById("mail_form");
             const formData = new FormData(form);
 
-            try {
-                const response = await fetch("http://localhost:8000/send-email", {
-                    method: "POST",
-                    body: formData,
-                });
+            const response = await fetch("http://localhost:8000/send-email", {
+                method: "POST",
+                body: formData,
+            });
 
-                const result = await response.json();
-                console.log("Success:", result);
-            } catch (error) {
-                console.error("Error:", error);
-            }
+            const result = await response.json();
+            if (response.status !== 200) {
+                alert(result.detail);
+            } 
         }
     </script>
 </body>
