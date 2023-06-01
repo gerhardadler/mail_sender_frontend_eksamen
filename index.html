@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad Sender</title>
+    <title>Mail Sender</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
+
 <body>
-    
+    <form id="mail_form" action="javascript: handleMailForm();">
+        <label for="recipients">Recipients:</label><br>
+        <!-- https://stackoverflow.com/a/9331463 (with the adjustment from Arie Litovsky) -->
+        <input type="text" id="recipients" name="recipients" title="Submit a list of comma seperated emails" pattern="^[\W]*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+[\W]*,{1}[\W]*)*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+)[\W]*$" required><br>
+
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" required><br>
+
+        <label for="body">Body:</label><br>
+        <input type="text" id="body" name="body" required><br>
+
+        <label for="sender">Sender:</label><br>
+        <input type="email" id="sender" name="sender" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password" required><br>
+
+        <input type="submit">
+    </form>
+    <script>
+        async function handleMailForm() {
+            const form = document.getElementById("mail_form");
+            const formData = new FormData(form);
+
+            const jsonData = {};
+            for (let [key, value] of formData.entries()) {
+                value = value.trim();
+                jsonData[key] = value;
+            }
+            jsonData["recipients"] = jsonData["recipients"].split(",");
+            jsonData["recipients"] = jsonData["recipients"].map(r => r.trim());
+            jsonData["recipients"] = jsonData["recipients"].filter(r => r != "")
+            try {
+                const response = await fetch("http://localhost:8000/send-email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(jsonData),
+                });
+
+                const result = await response.json();
+                console.log("Success:", result);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+
+        }
+    </script>
 </body>
+
 </html>
