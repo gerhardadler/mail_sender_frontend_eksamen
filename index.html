@@ -6,28 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mail Sender</title>
+    <link rel="stylesheet" href="style.css">
     <script src="handle_mail_form.js" defer></script>
 </head>
 
 <body>
     <form id="mail_form" action="javascript: handleMailForm();">
-        <label for="recipients">Recipients:</label><br>
-        <!-- https://stackoverflow.com/a/9331463 (with the adjustment from Arie Litovsky) -->
-        <input type="text" id="recipients" name="recipients" title="Submit a list of comma seperated emails" pattern="^[\W]*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+[\W]*,{1}[\W]*)*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+)[\W]*$" required><br>
+        <div class="content">
+            <h1>Mail Sender</h1>
+            <div class="form-section">
+                <label for="recipients">Recipients:</label>
+                <!-- https://stackoverflow.com/a/9331463 (with the adjustment from Arie Litovsky) -->
+                <input type="text" id="recipients" name="recipients" title="Submit a list of comma seperated emails"
+                    pattern="^[\W]*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+[\W]*,{1}[\W]*)*([\w+\-.%]+@[\w\-.]+\.[A-Za-z]+)[\W]*$"
+                    required>
+            </div>
+            <div class="form-section">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <textarea name="body" class="body"></textarea>
 
-        <label for="subject">Subject:</label><br>
-        <input type="text" id="subject" name="subject" required><br>
+            <div class="bottom-bar">
+                <div class="form-section">
+                    <label for="sender">Sender:</label>
+                    <input type="email" id="sender" name="sender" required>
+                </div>
 
-        <label for="body">Body:</label><br>
-        <input type="text" id="body" name="body" required><br>
+                <div class="form-section">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password" required>
+                </div>
 
-        <label for="sender">Sender:</label><br>
-        <input type="email" id="sender" name="sender" required><br>
-
-        <label for="password">Password:</label><br>
-        <input type="text" id="password" name="password" required><br>
-
-        <input type="submit">
+                <input type="submit" value="Send">
+            </div>
+        </div>
     </form>
 </body>
 
