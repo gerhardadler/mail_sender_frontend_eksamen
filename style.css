@@ -51,9 +51,7 @@ input[type="number"] {
 }
 
 .bottom-bar {
-    align-items: start;
     display: flex;
-    flex-wrap: wrap;
     margin-bottom: auto;
     gap: 1rem;
 }
@@ -65,13 +63,4 @@ input[type="number"] {
     top: 0;
     bottom: 0;
     margin: auto;
-}
-
-.bottom-bar .form-section {
-    flex: 2;
-}
-
-.submit-mail {
-    flex: 0.5;
-    align-self: stretch;
 }
