@@ -23,7 +23,7 @@
             </div>
             <div class="form-section">
                 <label for="csv_recipients">CSV Recipients:</label>
-                <input type="file" name="csv_recipients">
+                <input type="file" accept="text/csv" name="csv_recipients">
             </div>
             <div class="form-section">
                 <label for="subject">Subject:</label>
@@ -32,16 +32,27 @@
             <textarea name="body" class="body"></textarea>
 
             <div class="bottom-bar">
-                <div class="form-section">
-                    <label for="sender">Sender:</label>
-                    <input type="email" name="sender" required>
+                <div class="bottom-bar-section">
+                    <div class="form-section">
+                        <label for="sender">Sender:</label>
+                        <input type="email" name="sender" required>
+                    </div>
+                    <div class="form-section">
+                        <label for="password">Password:</label>
+                        <input type="text" name="password" required>
+                    </div>
                 </div>
+                <div class="bottom-bar-section">
+                    <div class="form-section">
+                        <label for="email_server">Email Server:</label>
+                        <input type="text" name="email_server" required>
+                    </div>
 
-                <div class="form-section">
-                    <label for="password">Password:</label>
-                    <input type="text" name="password" required>
+                    <div class="form-section">
+                        <label for="email_port">Port:</label>
+                        <input type="number" name="email_port" required>
+                    </div>
                 </div>
-
                 <input class="submit-mail" type="submit" value="Send">
             </div>
         </div>

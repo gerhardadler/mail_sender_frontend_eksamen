@@ -39,7 +39,7 @@ h1 {
     margin-right: 1rem;
 }
 
-.form-section input[type="text"], input[type="email"] {
+.form-section input[type="text"], input[type="email"], input[type="number"] {
     flex: 100;
     min-width: 20ch;
 }
@@ -54,6 +54,12 @@ h1 {
     flex-wrap: wrap;
     margin-bottom: auto;
     gap: 1rem;
+}
+
+.bottom-bar-section {
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: start;
 }
 
 .bottom-bar .form-section {
