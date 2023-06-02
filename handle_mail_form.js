@@ -2,8 +2,9 @@ async function handleMailForm() {
     const form = document.getElementById("mail_form");
     const formData = new FormData(form);
 
-    const response = await fetch("http://192.168.1.200:8000/send-email", {
+    const response = await fetch("http://localhost:8000/send-email", {
         method: "POST",
+        enctype: "multipart/form-data",
         body: formData,
     });
 
