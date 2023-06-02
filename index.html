@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form id="mail-form" action="javascript: handleMailForm();">
+    <form id="mail_form" action="javascript: handleMailForm();">
         <dialog id="sender-dialog">
             <div class="form-section">
                 <label for="sender">Sender:</label>
@@ -52,7 +52,7 @@
             <textarea name="body" class="body"></textarea>
 
             <div class="bottom-bar">
-                <button type="button" onclick="showSenderDialog()">Edit sender</button>
+                
                 <input class="submit-mail" type="submit" value="Send">
                 <script>
                     const senderDialog = document.querySelector("#sender-dialog");
